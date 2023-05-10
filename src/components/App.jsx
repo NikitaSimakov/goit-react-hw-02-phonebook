@@ -39,7 +39,6 @@ this.setState({filter: event.currentTarget.value})
     const {contacts} = this.state;
     const {id} = event.currentTarget;
     this.setState({contacts: contacts.filter(contact => contact.id !== id)});
-// console.log(contacts.filter(contact => contact.id !== id));
 
   }
 

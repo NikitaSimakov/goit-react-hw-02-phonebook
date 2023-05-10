@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const ContactList = ({ contactListRender, deleteContactHandler }) => {
-  console.log(contactListRender);
   return (
     <ul>
       {contactListRender &&
@@ -18,14 +17,6 @@ const ContactList = ({ contactListRender, deleteContactHandler }) => {
           </li>
         ))}
     </ul>
-    // <ul>
-    //   {contactList &&
-    //     contactList.map(contact => (
-    //       <li key={contact.id}>
-    //         {contact.name}: {contact.number}
-    //       </li>
-    //     ))}
-    // </ul>
   );
 };
 
