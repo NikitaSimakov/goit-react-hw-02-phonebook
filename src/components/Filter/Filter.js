@@ -1,12 +1,17 @@
 import PropTypes from 'prop-types';
 
 const Filter = ({ onChange, filter }) => {
-  return <input onChange={onChange} value={filter} type="text"></input>;
+  return (
+    <label>
+      Find contacts by name
+      <input onChange={onChange} value={filter} type="text"></input>
+    </label>
+  );
 };
 
 export default Filter;
 
 Filter.propTypes = {
-  onChange: PropTypes.func,
-  filter: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  filter: PropTypes.string.isRequired,
 };

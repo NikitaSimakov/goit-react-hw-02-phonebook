@@ -35,7 +35,13 @@ this.setState({filter: event.currentTarget.value})
 
     return contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLowerCase()));
   }
-  
+  deleteContactHandler = (event) => {
+    const {contacts} = this.state;
+    const {id} = event.currentTarget;
+    this.setState({contacts: contacts.filter(contact => contact.id !== id)});
+// console.log(contacts.filter(contact => contact.id !== id));
+
+  }
 
 render() {
   const contactListRender = this.contactListRender();
@@ -54,7 +60,7 @@ render() {
       <ContactForm onSubmit={this.formSubmitHandler}/>
       <h2>Contacts</h2>
       <Filter filter={this.state.filter} onChange={this.filterChangeHandler}/>
-      <ContactList contactListRender={contactListRender} contactList={this.state.contacts}/>
+      <ContactList contactListRender={contactListRender} deleteContactHandler={this.deleteContactHandler}/>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export class ContactForm extends Component {
   state = {
     name: '',
+    number: '',
   };
 
   handleInputChange = event => {

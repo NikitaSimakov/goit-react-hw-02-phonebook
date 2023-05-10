@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ContactList = ({ contactList, contactListRender }) => {
+const ContactList = ({ contactListRender, deleteContactHandler }) => {
   console.log(contactListRender);
   return (
     <ul>
@@ -8,7 +8,13 @@ const ContactList = ({ contactList, contactListRender }) => {
         contactListRender.map(contact => (
           <li key={contact.id}>
             {contact.name}: {contact.number}
-            <button type="button">Delete</button>
+            <button
+              type="button"
+              id={contact.id}
+              onClick={deleteContactHandler}
+            >
+              Delete
+            </button>
           </li>
         ))}
     </ul>
@@ -24,7 +30,8 @@ const ContactList = ({ contactList, contactListRender }) => {
 };
 
 ContactList.propTypes = {
-  contactList: PropTypes.array,
+  contactListRender: PropTypes.array.isRequired,
+  deleteContactHandler: PropTypes.func.isRequired,
 };
 
 export default ContactList;
