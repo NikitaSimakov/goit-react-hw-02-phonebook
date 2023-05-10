@@ -27,7 +27,8 @@ export class App extends Component {
   }
 
   filterChangeHandler = (event) => {
-this.setState({filter: event.currentTarget.value})
+    const {value} = event.currentTarget;
+this.setState({filter: value})
   }
 
   contactListRender = () => {
@@ -39,10 +40,10 @@ this.setState({filter: event.currentTarget.value})
     const {contacts} = this.state;
     const {id} = event.currentTarget;
     this.setState({contacts: contacts.filter(contact => contact.id !== id)});
-
   }
 
 render() {
+  const {filter} = this.state
   const contactListRender = this.contactListRender();
   return (
     <div
@@ -58,7 +59,7 @@ render() {
       <h1>Phonebook</h1>
       <ContactForm onSubmit={this.formSubmitHandler}/>
       <h2>Contacts</h2>
-      <Filter filter={this.state.filter} onChange={this.filterChangeHandler}/>
+      <Filter filter={filter} onChange={this.filterChangeHandler}/>
       <ContactList contactListRender={contactListRender} deleteContactHandler={this.deleteContactHandler}/>
     </div>
   );
