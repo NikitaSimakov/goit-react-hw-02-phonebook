@@ -45,6 +45,7 @@ this.setState({filter: value})
 render() {
   const {filter} = this.state
   const contactListRender = this.contactListRender();
+  const {formSubmitHandler, filterChangeHandler, deleteContactHandler} = this;
   return (
     <div
       style={{
@@ -58,10 +59,10 @@ render() {
       }}
     >
       <h1>Phonebook</h1>
-      <ContactForm onSubmit={this.formSubmitHandler}/>
+      <ContactForm onSubmit={formSubmitHandler}/>
       <h2>Contacts</h2>
-      <Filter filter={filter} onChange={this.filterChangeHandler}/>
-      <ContactList contactListRender={contactListRender} deleteContactHandler={this.deleteContactHandler}/>
+      <Filter filter={filter} onChange={filterChangeHandler}/>
+      <ContactList contactListRender={contactListRender} deleteContactHandler={deleteContactHandler}/>
     </div>
   );
 }
